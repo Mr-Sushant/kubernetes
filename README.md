@@ -94,3 +94,24 @@ spec:
   - name: my-nginx
     image: nginx:alpine
 ```
+
+To create a pod with the above configuration.
+```
+kubectl create -f file.pod.yml
+or
+kubectl create -f file.pod.yml --dry-run --validate=true
+```
+Validate=true is a default value and throws error if yaml is not correct.
+--dry-run would not directly effect the cluster instead it will show us a preview how it will look.
+
+create will throw error if the pod is already present.
+Instead we can use *kubectl apply -f file.pod.yml*. This will create or update the pod.
+
+```
+kubectl create -f file.pod.yml --save-config
+```
+this will store current properties in resource's annotations (inside metadata)
+
+```
+kubectl describe \[pod-name\]
+```

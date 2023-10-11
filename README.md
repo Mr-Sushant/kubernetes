@@ -64,3 +64,33 @@ Pods live and die but never come back to life.
 - Pods do not span over multiple nodes
 
 ![POD](/pics/pod.png)
+
+### Deleting a Pod
+kubectl delete pod \[pod-name\]
+`This will cause the pod to be recreated`
+
+kubectl delete deployment \[deployment-name\]
+`this will delete the deployment that manages the pod`
+
+## YAML
+- composed of maps and lists
+- indentation matters
+- always use spaces for indent
+- Maps:
+    - name: value pairs
+    - Maps can contain other maps for more complex data structures
+- Lists:
+    - sequence of items
+    - multiple maps can be defined in a list
+
+### Defining a Pod with YAML
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx
+spec:
+  containers:
+  - name: my-nginx
+    image: nginx:alpine
+```

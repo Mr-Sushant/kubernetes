@@ -218,3 +218,12 @@ Scale the deployment to 5 pods using YAML file
 kubectl scale -f \[file-name\] --replicas=5
 ```
 
+## Deployment Options
+One of strengths of K8s is ZERO DOWNTIME DEPLOYMENTS
+There are several options available:
+1. Rolling updates
+2. Blue-Green updates
+3. Canary deployments
+4. Rollbacks
+
+This happens automatically when we do kubectl apply command.

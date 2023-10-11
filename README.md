@@ -192,3 +192,29 @@ A deployment manages Pods:
 - YAML is very similar to ReplicaSet
 
 ![Deployment](/pics/deployment.png)
+
+Show Deployments with all the labels available
+```
+kubectl get deployment --show-labels
+```
+
+Find the deployments with specified labels
+```
+kubectl get deployment -l app=nginx
+```
+
+Delete Deployment
+```
+kubectl delete deployment \[deployment-name\]
+```
+
+Scale the deployment to 5 pods
+```
+kubectl scale deployment \[deployment-name\] --replicas=5
+```
+
+Scale the deployment to 5 pods using YAML file
+```
+kubectl scale -f \[file-name\] --replicas=5
+```
+

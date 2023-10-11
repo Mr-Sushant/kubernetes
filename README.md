@@ -227,3 +227,26 @@ There are several options available:
 4. Rollbacks
 
 This happens automatically when we do kubectl apply command.
+
+## Services
+A service provides a single point of entry for accessing one or more pods.
+
+### Need for Services ?
+Suppose there is a pod with IP 1.1.1.1 and it dies, so its the responsibility of the service to redirect new requests to the new IP of new Pod (2.2.2.2).
+
+- Service abstracts POD IP Address from consumers.
+- Load balances between  pods
+- relies on labels to associate a service with pod
+- node's kube-proxy creates a virtual IP for services
+- layer 4 (TCP/UDP over IP)
+- Services are not ephemeral
+- creates endpoint which sits between a service and a pod
+
+![Services](/pics/service.png)
+
+### Service Types
+1. ClusterIP - expose the service on a cluster-internal IP (default). Only pods within the cluster are allowed to talk to the service. It allows Pods to talk to other Pods.
+2. NodePort - expose the service on each Node's IP at a static port
+3. LoadBalancer - provision an external IP to act as a load balancer for the service
+4. ExternalName - Maps a service to a DNS name.
+

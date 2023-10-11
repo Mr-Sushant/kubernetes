@@ -154,7 +154,7 @@ spec:
                 port: 80
             initialDelaySeconds: 2   # wait 2 seconds
             periodSeconds: 5         # check every 5 seconds
-            
+
         livenessProbe:               # LIVENESS PROBE
             httpGet:
                 path: /index.html
@@ -164,3 +164,31 @@ spec:
             periodSeconds: 5         # check every 5 seconds
             failureThreshold: 1      # allow 1 failure before failing pod
 ```
+
+## Deployment
+
+### Replica set
+A replica set is a declarative way to manage Pods.
+A deployment is a declarative way to manage Pods using a ReplicaSet.
+
+Since a Pod cannot be re-created, Deployments and Replicaset ensure pods stay running and can be used to scale Pods.
+
+Replica Set act as a Pod controller:
+- Self healing mechanism
+- ensure requested number of pods are available
+- provide fault tolerance
+- used to scale pods
+- relies on a pod template
+- no need to create pods directly
+- used by deployments
+
+### Deployment
+A deployment manages Pods:
+- pods are managed using ReplicaSet
+- scales replicaset, which scales pods
+- supports zero-downtime updates by creating and destroying replicaSets
+- provides rollback functionality
+- creates a unique label that is assigned to the replicaSet and generated Pods
+- YAML is very similar to ReplicaSet
+
+![Deployment](/pics/deployment.png)

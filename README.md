@@ -32,3 +32,19 @@ Link - (https://kubernetes.io)
 7. kubectl create \[resource\] - create a resource
 8. kubectl apply \[resource\] - create/modify a resource.
 
+## Set alias for kubectl
+### Powershell
+Set-Alias -Name k -Value kubectl
+
+### linux/Mac
+alias k = "kubectl"
+
+## Steps to setup Web UI Dashboard
+1. k apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+2. k apply -f dashboard.adminuser.yml (first create this file)
+3. k create token admin-user -n kube-system
+4. k proxy
+5. Visit the URL - http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+6. Paste the generated token
+
+![Dashboard](/pics/dashboard.png "Kubernetes Web UI Dashboard")

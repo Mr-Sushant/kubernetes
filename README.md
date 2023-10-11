@@ -115,3 +115,52 @@ this will store current properties in resource's annotations (inside metadata)
 ```
 kubectl describe \[pod-name\]
 ```
+
+## Pod Health
+Kubernetes relies on Probes to determine the health of a pod container.
+A probe is a diagnostic performed periodically by the kubelet on a container.
+
+### Types of Probes
+1. Liveness Probe
+2. Readiness Probe
+
+Liveness Probe - determine if a pod is healthy and running as expected.
+Readiness Probe - determine if a pod should receive requests.
+
+Failed Pod containers are recreated by default. (restartPolicy defaults to always).
+
+### Probe Types
+1. ExecAction - executes an action inside the container.
+2. TCPSocketAction - TCP check against the container's IP address on a specified port.
+3. HTTPGetAction - HTTP GET request against container.
+
+Probes can have following result values:
+- Success
+- Failure
+- Unknown
+
+```yaml
+apiVersion: v1
+kind: Pod
+...
+
+spec:
+    containers:
+    -   name: my-nginx
+        image: nginx-alpine
+        readinessProbe:              # READINESS PROBE
+            httpGet:
+                path: /index.html
+                port: 80
+            initialDelaySeconds: 2   # wait 2 seconds
+            periodSeconds: 5         # check every 5 seconds
+            
+        livenessProbe:               # LIVENESS PROBE
+            httpGet:
+                path: /index.html
+                port: 80
+            initialDelaySeconds: 15  # wait 15 seconds
+            timeout: 2               # timeout after 2 seconds
+            periodSeconds: 5         # check every 5 seconds
+            failureThreshold: 1      # allow 1 failure before failing pod
+```

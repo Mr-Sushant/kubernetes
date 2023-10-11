@@ -48,3 +48,19 @@ alias k = "kubectl"
 6. Paste the generated token
 
 ![Dashboard](/pics/dashboard.png "Kubernetes Web UI Dashboard")
+
+
+## POD
+A pod is the basic execution unit of a Kubernetes application - the smallest and simplest unit in the kubernetes object model that we create or deploy.
+Pod acts as an environment for a container
+Pod IP, memory, volumes, etc can be shared across containers.
+We can scale horizontally by adding Pod replicas.
+Pods live and die but never come back to life.
+
+- Pod containers share the same network namespace (IP/PORT)
+- Pod containers share the same loopback network interface (localhost)
+- container processes need to bind to different ports within a pod.
+- Ports can be reused by containers in separate pods.
+- Pods do not span over multiple nodes
+
+![POD](/pics/pod.png)

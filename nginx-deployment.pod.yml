@@ -9,11 +9,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      tier: frontend
+      app: my-nginx
   template:
     metadata:
       labels:
-        tier: frontend
+        app: my-nginx
     spec:
       containers:
       - name: my-nginx

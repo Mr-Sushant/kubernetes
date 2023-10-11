@@ -250,3 +250,8 @@ Suppose there is a pod with IP 1.1.1.1 and it dies, so its the responsibility of
 3. LoadBalancer - provision an external IP to act as a load balancer for the service
 4. ExternalName - Maps a service to a DNS name.
 
+### Creating Service with kubectl
+```
+kubectl port-forward service/[service-name] 8080:80
+```
+The name tag in metadata of service yaml file will be used as its IP in internal DNS configuration

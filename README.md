@@ -255,3 +255,18 @@ Suppose there is a pod with IP 1.1.1.1 and it dies, so its the responsibility of
 kubectl port-forward service/[service-name] 8080:80
 ```
 The name tag in metadata of service yaml file will be used as its IP in internal DNS configuration
+
+
+## Storage
+A volume can be used to hold data and state for pods and containers.
+Volumes can be used to store data/state and use it in pod.
+A pod can have multiple volumes attached to it.
+containers rely on mountPath to access a volume.
+
+Kubernetes supports:
+1. Volumes
+2. PersistentVolumes
+3. PersistentVolumesClaims
+4. StorageClasses
+
+### Volumes

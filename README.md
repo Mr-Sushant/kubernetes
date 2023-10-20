@@ -1,6 +1,8 @@
 # Kubernetes
 It is an open source system for automating deployment, scaling and management of containerized applications.
 Link - (https://kubernetes.io)
+Github - (https://github.com/kubernetes/examples)
+
 
 ## Need for Kubernetes
 1. Package an app and let something else manage it for us.
@@ -269,4 +271,11 @@ Kubernetes supports:
 3. PersistentVolumesClaims
 4. StorageClasses
 
-### Volumes
+## Troubleshooting
+1. kubectl logs \[pod-name\] # View pod logs
+2. kubectl logs \[pod-name\] -c \[container-name\] # logs of a specific container inside a pod
+3. kubectl logs -p \[pod-name\] # logs of a previous running pod
+4. kubectl logs -f \[pod-name\] # stream pod logs
+5. kubectl describe pod \[pod-name\] # describe a pod
+6. kubectl get pod \[pod-name\] -o yaml # format output in yaml format
+7. 
